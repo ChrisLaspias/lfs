@@ -1,5 +1,8 @@
 #!/bin/bash
 
+#./create_user_lfs.sh
+#source set_environment.sh
+
 export LFS=/mnt/lfs
 export LFS_TGT=x86_64-lfs-linux-gnu
 export LFS_DISK=/dev/sdd
@@ -34,4 +37,16 @@ esac
 
 #make the dir sticky (only owner can delete files)
 chmod -v a+wt $LFS/sources
+
+#copy scripts to sources directory
+echo "copying files into sources"
+cp -rf *.sh chapter* "$LFS/sources"
+
+cd "$LFS/sources"
+
+#download all packages and check their md5sum
+#source download.sh
+
+#start installing the packages (chapter 5)
+#source install_package.sh 5 binutils
 

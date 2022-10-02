@@ -9,5 +9,3 @@ mv md5sums $LFS/sources
 pushd $LFS/sources
   md5sum -c md5sums
 popd
-
-
