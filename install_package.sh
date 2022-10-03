@@ -1,18 +1,14 @@
 CHAPTER="$1"
 PACKAGE="$2"
 
-cat wget-list-sysv | grep -i "$PACKAGE" | grep -i -v "\.patch;" | while read line; do
-	FULL="${line##*/}"
-	PACKAGE="${FULL%-*}"
-	VERSION="${FULL##*-}"
-	VERSION="$(echo $VERSION | sed 's/\(.*\)\.tar\..*/\1/')"
-	DIRNAME="$(echo $FULL | sed 's/\(.*\)\.tar\..*/\1/')"
-	echo $PACKAGE
-	echo $VERSION
-	echo $DIRNAME
+cat packages.csv | grep -i "^$PACKAGE" | grep -i -v "\.patch;" | while read line; do
+	VERSION="`echo $line | cut -d\; -f2`"
+	URL="`echo $line | cut -d\; -f3`"
+	CACHEFILE="$(basename "$URL")"
+	DIRNAME="$(echo $CACHEFILE | sed 's/\(.*\)\.tar\..*/\1/')"
 
 	mkdir -pv "$DIRNAME"
-	tar -xf "$FULL" -C "$DIRNAME"
+	tar -xf "$CACHEFILE" -C "$DIRNAME"
 
 	pushd "$DIRNAME"
 
@@ -20,14 +16,13 @@ cat wget-list-sysv | grep -i "$PACKAGE" | grep -i -v "\.patch;" | while read lin
 		mv $(ls -1A)/* ./
 	fi
 
-	echo "Compiling $FULL"
+	echo "Compiling $CACHEFILE"
 	sleep 5
-
 
 	mkdir -pv "../log/chapter$CHAPTER/"
 	
 	if ! source "../chapter$CHAPTER/$PACKAGE.sh" 2>&1 | tee "../log/chapter$CHAPTER/$PACKAGE.log"; then
-		echo "Compiling $FULL FAILED !"
+		echo "Compiling $CACHEFILE FAILED !"
 		popd
 		exit 1
 	fi
