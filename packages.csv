@@ -21,6 +21,7 @@ findutils;4.9.0;https://ftp.gnu.org/gnu/findutils/findutils-4.9.0.tar.xz;4a4a547
 flex;2.6.4;https://github.com/westes/flex/releases/download/v2.6.4/flex-2.6.4.tar.gz;2882e3179748cc9f9c23ec593d6adc8d
 gawk;5.1.1;https://ftp.gnu.org/gnu/gawk/gawk-5.1.1.tar.xz;83650aa943ff2fd519b2abedf8506ace
 gcc;12.2.0;https://ftp.gnu.org/gnu/gcc/gcc-12.2.0/gcc-12.2.0.tar.xz;73bafd0af874439dcdb9fc063b6fb069
+libstdc++;12.2.0;https://ftp.gnu.org/gnu/gcc/gcc-12.2.0/gcc-12.2.0.tar.xz;73bafd0af874439dcdb9fc063b6fb069
 gdbm;1.23;https://ftp.gnu.org/gnu/gdbm/gdbm-1.23.tar.gz;8551961e36bf8c70b7500d255d3658ec
 gettext;0.21;https://ftp.gnu.org/gnu/gettext/gettext-0.21.tar.xz;40996bbaf7d1356d3c22e33a8b255b31
 glibc;2.36;https://ftp.gnu.org/gnu/glibc/glibc-2.36.tar.xz;00e9b89e043340f688bc93ec03239b57
@@ -43,6 +44,7 @@ libffi;3.4.2;https://github.com/libffi/libffi/releases/download/v3.4.2/libffi-3.
 libpipeline;1.5.6;https://download.savannah.gnu.org/releases/libpipeline/libpipeline-1.5.6.tar.gz;829c9ba46382b0b3e12dd11fcbc1bb27
 libtool;2.4.7;https://ftp.gnu.org/gnu/libtool/libtool-2.4.7.tar.xz;2fc0b6ddcd66a89ed6e45db28fa44232
 linux;5.19.2;https://www.kernel.org/pub/linux/kernel/v5.x/linux-5.19.2.tar.xz;391274e2e49a881403b0ff2e0712bf82
+linux-api-headers;5.19.2;https://www.kernel.org/pub/linux/kernel/v5.x/linux-5.19.2.tar.xz;391274e2e49a881403b0ff2e0712bf82
 m4;1.4.19;https://ftp.gnu.org/gnu/m4/m4-1.4.19.tar.xz;0d90823e1426f1da2fd872df0311298d
 make;4.3;https://ftp.gnu.org/gnu/make/make-4.3.tar.gz;fc7a67ea86ace13195b0bce683fd4469
 man-db;2.10.2;https://download.savannah.gnu.org/releases/man-db/man-db-2.10.2.tar.xz;e327f7af3786d15e5851658ae7ef47ed

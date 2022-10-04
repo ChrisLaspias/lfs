@@ -48,6 +48,9 @@ cd "$LFS/sources"
 source download.sh
 
 #start installing the packages (chapter 5)
+#UNCOMMENT to install
 #source install_package.sh 5 binutils
-source install_package.sh 5 gcc
-
+#source install_package.sh 5 gcc
+#source install_package.sh 5 linux-api-headers
+#source install_package.sh 5 glibc
+source install_package.sh 5 libstdc++
