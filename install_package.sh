@@ -7,6 +7,10 @@ cat packages.csv | grep -i "^$PACKAGE" | grep -i -v "\.patch;" | while read line
 	CACHEFILE="$(basename "$URL")"
 	DIRNAME="$(echo $CACHEFILE | sed 's/\(.*\)\.tar\..*/\1/')"
 
+	if [ -d "$DIRNAME" ] ; then
+		rm -rf "$DIRNAME"
+	fi
+
 	mkdir -pv "$DIRNAME"
 	tar -xf "$CACHEFILE" -C "$DIRNAME"
 

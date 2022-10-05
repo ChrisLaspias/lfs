@@ -1,7 +1,4 @@
 # lfs
 Linux From Scratch
+# till chapter 5
 
-#to do or not done 
-fix download script to download only when packages are not there e.g create a csv file 
-
-# binutils were compiled successfully 5.2 done

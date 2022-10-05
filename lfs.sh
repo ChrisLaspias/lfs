@@ -53,4 +53,21 @@ source download.sh
 #source install_package.sh 5 gcc
 #source install_package.sh 5 linux-api-headers
 #source install_package.sh 5 glibc
-source install_package.sh 5 libstdc++
+#source install_package.sh 5 libstdc++
+#source install_package.sh 6 m4
+#source install_package.sh 6 ncurses
+#source install_package.sh 6 bash
+#source install_package.sh 6 coreutils
+# source install_package.sh 6 diffutils
+# source install_package.sh 6 file
+# source install_package.sh 6 findutils
+# source install_package.sh 6 gawk
+#source install_package.sh 6 grep
+#source install_package.sh 6 gzip
+#source install_package.sh 6 make
+#source install_package.sh 6 patch
+#source install_package.sh 6 sed
+#source install_package.sh 6 tar
+#source install_package.sh 6 xz
+#source install_package.sh 6 binutils
+source install_package.sh 6 gcc
