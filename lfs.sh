@@ -6,6 +6,7 @@
 export LFS=/mnt/lfs
 export LFS_TGT=x86_64-lfs-linux-gnu
 export LFS_DISK=/dev/sdd
+export MAKEFLAGS='-j4'
 
 #if not already mounted then do the following 
 if ! grep -q "$LFS" /proc/mounts; then
@@ -25,10 +26,10 @@ fi
 
 # $LFS/sources directory will contain all the pacakages downloaded from the web
 # $LFS/tools will contain the binaries of all packages from $LFS/sources
-mkdir -pv $LFS/{boot,etc,bin,lib,sbin,usr,var,sources,tools} $LFS/usr/{bin,lib,sbin}
+mkdir -pv $LFS/{boot,etc,usr,var,sources,tools} $LFS/usr/{bin,lib,sbin}
 
 for i in bin lib sbin; do
-  ln -sv usr/$i $LFS/$i
+  sudo ln -sv usr/$i $LFS/$i
 done
 
 case $(uname -m) in
@@ -58,10 +59,10 @@ source download.sh
 #source install_package.sh 6 ncurses
 #source install_package.sh 6 bash
 #source install_package.sh 6 coreutils
-# source install_package.sh 6 diffutils
-# source install_package.sh 6 file
-# source install_package.sh 6 findutils
-# source install_package.sh 6 gawk
+#source install_package.sh 6 diffutils
+#source install_package.sh 6 file
+#source install_package.sh 6 findutils
+#source install_package.sh 6 gawk
 #source install_package.sh 6 grep
 #source install_package.sh 6 gzip
 #source install_package.sh 6 make
@@ -70,4 +71,16 @@ source download.sh
 #source install_package.sh 6 tar
 #source install_package.sh 6 xz
 #source install_package.sh 6 binutils
-source install_package.sh 6 gcc
+#source install_package.sh 6 gcc
+
+
+chmod ugo+x before_chroot.sh
+sudo ./before_chroot.sh "$LFS"
+echo "Entering Chroot"
+
+sudo chroot "$LFS" /usr/bin/env -i \
+    HOME=/root                  \
+    TERM="$TERM"                \
+    PS1='(lfs chroot) \u:\w\$ ' \
+    PATH=/usr/bin:/usr/sbin     \
+    /bin/bash --login +h

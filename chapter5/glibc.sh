@@ -1,4 +1,5 @@
 #!/bin/bash
+
 case $(uname -m) in
     i?86)   ln -sfv ld-linux.so.2 $LFS/lib/ld-lsb.so.3
     ;;
