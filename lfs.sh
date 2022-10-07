@@ -75,12 +75,15 @@ source download.sh
 
 
 chmod ugo+x before_chroot.sh
+chmod +x inside_chroot.sh
 sudo ./before_chroot.sh "$LFS"
 echo "Entering Chroot"
+sleep 3
 
 sudo chroot "$LFS" /usr/bin/env -i \
     HOME=/root                  \
     TERM="$TERM"                \
     PS1='(lfs chroot) \u:\w\$ ' \
     PATH=/usr/bin:/usr/sbin     \
-    /bin/bash --login +h
+    /bin/bash --login +h -c "/sources/inside_chroot.sh"
+
